@@ -1,8 +1,7 @@
 import './App.css';
-import Count from './Components/count';
 
 function App() {
-  return <Count/>
+  return;
 }
 
 export default App;
