@@ -7,8 +7,9 @@ const Navigation = () => {
   return (
     <header className={classes.header}>
       <NavLink to="/" className={classes.logo}>
-        Full Workout
-          {/* <img src="./images/LOGO.png" all="Logo" className={classes.logo} /> */}
+        Full
+        <em>Workout</em>
+        {/* <img src="./images/LOGO.png" all="Logo" className={classes.logo} /> */}
       </NavLink>
       <ul className={classes.header_link}>
         <li>
@@ -28,7 +29,7 @@ const Navigation = () => {
         </li>
         <li>
           <NavLink to="/signup" activeClassName={classes.active}>
-            Sign Up
+            <em>Sign Up</em>
           </NavLink>
         </li>
       </ul>
