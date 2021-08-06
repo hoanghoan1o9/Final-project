@@ -21,6 +21,7 @@
   font-weight: 800;
   color: #61dafb;
   letter-spacing: 0.5px;
+  -webkit-user-select: none
 }
 
 .main_caption h2 {
@@ -31,6 +32,7 @@
   font-weight: 800;
   color: #fff;
   letter-spacing: 1px;
+  -webkit-user-select: none;
 }
 
 .main_caption em {
@@ -48,10 +50,11 @@
   color: #fff;
   text-align: center;
   font-weight: 400;
-  text-transform: uppercase;
   transition: all 0.3s;
   text-decoration: none;
   border-radius: 8px;
+  text-transform: uppercase;
+  -webkit-user-select: none
 }
 
 .main_caption a:hover {

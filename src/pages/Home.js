@@ -1,11 +1,13 @@
 import React, { Fragment } from "react";
 import MainHomeBody from "../Components/Homepage/MainHomeBody";
-import Calculate from "../Components/Homepage/Calculate";
+import MainNutritionBody from "../Components/Homepage/MainNutritionBody";
+import MainProgramBody from "../Components/Homepage/MainProgramBody";
 const Home = () => {
   return (
     <Fragment>
       <MainHomeBody />
-      <Calculate />
+      <MainProgramBody />
+      <MainNutritionBody />
     </Fragment>
   );
 };
