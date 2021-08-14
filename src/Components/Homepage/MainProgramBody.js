@@ -22,22 +22,22 @@ const Calculate = () => {
           <span></span>
           <span></span>
           <span></span>
-          <div className={classes.content}>
+          <li className={classes.content}>
             <h2>01</h2>
             <h3>BMI</h3>
             <p>
               Body mass index is a commonly used tool to measure body fat,
-              calculated based on height and weight, applicable to men and women
+              calculated based on height and weight, applicable to men and women.
             </p>
-            <Link to="/signup">Read more</Link>
-          </div>
+            <Link to="/bmi">calculate</Link>
+          </li>
         </div>
         <div className={classes.card}>
           <span></span>
           <span></span>
           <span></span>
           <span></span>
-          <div className={classes.content}>
+          <li className={classes.content}>
             <h2>02</h2>
             <h3>BMR</h3>
             <p>
@@ -45,15 +45,15 @@ const Calculate = () => {
               the minimum level of energy that sustains life and serves the
               basic elements.
             </p>
-            <Link to="/signup">Read more</Link>
-          </div>
+            <Link to="/bmr">calculate</Link>
+          </li>
         </div>
         <div className={classes.card}>
           <span></span>
           <span></span>
           <span></span>
           <span></span>
-          <div className={classes.content}>
+          <li className={classes.content}>
             <h2>03</h2>
             <h3>TDEE</h3>
             <p>
@@ -61,8 +61,8 @@ const Calculate = () => {
               the body in a day including all the sleeping and eating activities
               you have during the day.
             </p>
-            <Link to="/signup">Read more</Link>
-          </div>
+            <Link to="/tdee">calculate</Link>
+          </li>
         </div>
       </div>
     </section>

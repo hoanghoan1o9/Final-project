@@ -12,7 +12,7 @@ const MainNutritionBody = () => {
         <p className={classes.boil_important_work}>
           Nutrition is extremely important, it accounts for 70% of the success.
           You must balance{" "}
-          <em>PROTEIN, CARBOHYDRATES, FAT, WATER, MINERALS, SLEEP</em>. To get
+          <em>PROTEIN, CARBOHYDRATES, FAT, WATER, VITAMINS, SLEEP</em>. To get
           the best result.
         </p>
       </div>
@@ -31,7 +31,7 @@ const MainNutritionBody = () => {
                 consume (e.g. meats, fish, dairy, eggs, etc.) are made up of the
                 same amino acids that make up our muscles
               </p>
-              <Link to="/signup">Read more</Link>
+              <Link to="/nutrition">Read more</Link>
             </div>
           </div>
         </div>
@@ -42,7 +42,7 @@ const MainNutritionBody = () => {
           </div>
           <div className={classes.back}>
             <div className={classes.back_content}>
-              <h2>CARBOHYDRATE</h2>
+              <h2>CARBOHYDRATES</h2>
               <p>
                 The main role of carbohydrates in physical activity is to
                 provide energy.Increased by consuming carbohydrate in the hours
@@ -50,7 +50,7 @@ const MainNutritionBody = () => {
                 refuelling during recovery between sessions. This is important
                 for the training where optimal performance is desired
               </p>
-              <Link to="/signup">Read more</Link>
+              <Link to="/nutrition">Read more</Link>
             </div>
           </div>
         </div>
@@ -70,7 +70,7 @@ const MainNutritionBody = () => {
                 plants such as avocados, nuts, olive oil.... Moderate use will
                 be very good for health
               </p>
-              <Link to="/signup">Read more</Link>
+              <Link to="/nutrition">Read more</Link>
             </div>
           </div>
         </div>
@@ -81,15 +81,15 @@ const MainNutritionBody = () => {
           </div>
           <div className={classes.back}>
             <div className={classes.back_content}>
-              <h2>VITAMIN</h2>
+              <h2>VITAMINS</h2>
               <p>
-                Vitamins and minerals, also known as micronutrients, are crucial
+                Vitamins and minerals, also known as Micronutrients, are crucial
                 for a variety of activities in the body such as turning food
                 into energy and keeping bones healthy. They also may affect how
                 well the body performs. some vitamin good for training as
                 vitamin A and D, B6 and B12, vitamin C and so on.
               </p>
-              <Link to="/signup">Read more</Link>
+              <Link to="/nutrition">Read more</Link>
             </div>
           </div>
         </div>
@@ -108,7 +108,7 @@ const MainNutritionBody = () => {
                 That way, you'll reduce the risk of heat stress,maintain normal
                 body function, and maintain performance levels.
               </p>
-              <Link to="/signup">Read more</Link>
+              <Link to="/nutrition">Read more</Link>
             </div>
           </div>
         </div>
@@ -127,7 +127,7 @@ const MainNutritionBody = () => {
                 session the next day. Sleep enhances muscle recovery through
                 protein synthesis and human growth hormone release
               </p>
-              <Link to="/signup">Read more</Link>
+              <Link to="/nutrition">Read more</Link>
             </div>
           </div>
         </div>

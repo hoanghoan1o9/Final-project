@@ -15,7 +15,7 @@ const MainHomeBody = () => {
           Easy With Our 
           <em>program</em>
           </h2>
-          <Link to="/signup">Be Come A Member</Link>
+          <Link to="/signup">Get started</Link>
         </div>
     </Fragment>
   );
