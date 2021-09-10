@@ -1,9 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
-
+import { AuthContext } from "../../contexts/AuthContext";
 import classes from "./Navigation.module.css";
 
 const Navigation = () => {
+  const {
+    authState: {
+      user: { username },
+    },
+    logoutUser,
+  } = useContext(AuthContext);
+
+  const logout = () => logoutUser();
+
   return (
     <header className={classes.header}>
       <NavLink to="/" className={classes.logo}>
@@ -12,7 +21,7 @@ const Navigation = () => {
         {/* <img src="./images/LOGO.png" all="Logo" className={classes.logo} /> */}
       </NavLink>
       <ul className={classes.header_link}>
-        <li>
+        {/* <li>
           <NavLink to="/programs" activeClassName={classes.active}>
             Programs
           </NavLink>
@@ -21,6 +30,11 @@ const Navigation = () => {
           <NavLink to="/nutrition" activeClassName={classes.active}>
             Nutrition
           </NavLink>
+        </li> */}
+        <li>
+          <NavLink to="/" activeClassName={classes.active}>
+            Home
+          </NavLink>
         </li>
         <li>
           <NavLink to="/about" activeClassName={classes.active}>
@@ -28,9 +42,17 @@ const Navigation = () => {
           </NavLink>
         </li>
         <li>
-          <NavLink to="/signup" activeClassName={classes.active}>
-            <em>Sign Up</em>
-          </NavLink>
+          <div>
+            <em>{username}</em>
+          </div>
+        </li>
+        <li>
+        <div
+            className={classes.logout}
+            onClick={logout}
+          >
+            Logout
+          </div>
         </li>
       </ul>
     </header>

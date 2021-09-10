@@ -42,7 +42,7 @@
   font-weight: 900;
 }
 
-.main_caption a {
+/* .main_caption a {
   display: inline-block;
   font-size: 15px;
   padding: 12px 20px;
@@ -59,4 +59,4 @@
 
 .main_caption a:hover {
   background-color: #0c88aa; 
-}
+} */

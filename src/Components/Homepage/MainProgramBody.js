@@ -29,7 +29,7 @@ const Calculate = () => {
               Body mass index is a commonly used tool to measure body fat,
               calculated based on height and weight, applicable to men and women.
             </p>
-            <Link to="/bmi">calculate</Link>
+            <Link to="/programs">calculate</Link>
           </li>
         </div>
         <div className={classes.card}>
@@ -45,7 +45,7 @@ const Calculate = () => {
               the minimum level of energy that sustains life and serves the
               basic elements.
             </p>
-            <Link to="/bmr">calculate</Link>
+            <Link to="/programs">calculate</Link>
           </li>
         </div>
         <div className={classes.card}>
@@ -61,7 +61,7 @@ const Calculate = () => {
               the body in a day including all the sleeping and eating activities
               you have during the day.
             </p>
-            <Link to="/tdee">calculate</Link>
+            <Link to="/programs">calculate</Link>
           </li>
         </div>
       </div>
