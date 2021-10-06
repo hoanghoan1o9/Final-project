@@ -1,0 +1,62 @@
+.video {
+  position: relative;
+  max-width: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.main_caption {
+  text-align: center;
+  position: absolute;
+  width: 80%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.main_caption h6 {
+  margin-top: 0;
+  font-size: 30px;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: #61dafb;
+  letter-spacing: 0.5px;
+  -webkit-user-select: none
+}
+
+.main_caption h2 {
+  margin-top: 30px;
+  margin-bottom: 25px;
+  font-size: 80px;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: 1px;
+  -webkit-user-select: none;
+}
+
+.main_caption em {
+  padding-left: 15px;
+  font-style: normal;
+  color: #61dafb;
+  font-weight: 900;
+}
+
+/* .main_caption a {
+  display: inline-block;
+  font-size: 15px;
+  padding: 12px 20px;
+  background-color: #61dafb;
+  color: #fff;
+  text-align: center;
+  font-weight: 400;
+  transition: all 0.3s;
+  text-decoration: none;
+  border-radius: 8px;
+  text-transform: uppercase;
+  -webkit-user-select: none
+}
+
+.main_caption a:hover {
+  background-color: #0c88aa; 
+} */

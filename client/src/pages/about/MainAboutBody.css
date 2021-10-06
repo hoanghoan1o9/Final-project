@@ -1,0 +1,15 @@
+.wrapper {
+  display: flex !important;
+  margin: auto;
+  padding: 10vh;
+  background-color: aliceblue;
+  height: 753px;
+}
+.button {
+  background-color: #61dafb !important;
+}
+
+.button:hover {
+  color: #61dafb !important;
+  background-color: #2c2a31 !important    ;
+}
