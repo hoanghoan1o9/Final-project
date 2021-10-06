@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-
+const Schema = mongoose.Schema;
 const MovieSchema = new mongoose.Schema(
   {
     title: { type: String, required: true, unique: true },
@@ -9,8 +9,8 @@ const MovieSchema = new mongoose.Schema(
     imgSm: { type: String },
     trailer: { type: String },
     video: { type: String },
-    // year: { type: String },
-    // limit: { type: Number },
+    year: { type: String },
+    limit: { type: Number },
     genre: { type: String },
     isSeries: { type: Boolean, default: false },
   },
