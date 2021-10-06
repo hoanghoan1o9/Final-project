@@ -6,7 +6,7 @@ import {
   TrendingUp,
   PermIdentity,
   Storefront,
-  AttachMoney,
+  List,
   BarChart,
   MailOutline,
   DynamicFeed,
@@ -48,16 +48,18 @@ const Sidebar = () => {
                 Users
               </li>
             </Link>
-            <Link to="/products" className="link">
+            <Link to="/movies" className="link">
               <li className="sidebarListItem">
                 <Storefront className="sidebarIcon" />
                 Videos
               </li>
             </Link>
-            <li className="sidebarListItem">
-              <AttachMoney className="sidebarIcon" />
-              Transactions
-            </li>
+            <Link to="/lists" className="link">
+              <li className="sidebarListItem">
+                <List className="sidebarIcon" />
+                Lists
+              </li>
+            </Link>
             <li className="sidebarListItem">
               <BarChart className="sidebarIcon" />
               Reports
