@@ -1,8 +1,9 @@
 import { useContext, useState } from "react";
 import { login } from "../../authContext/apiCalls";
 import { AuthContext } from "../../authContext/AuthContext";
-// import backgroundLogin from "../../assets/images/1.jpg"
+// import backgroundLogin from "../../assets/images/1.jpg";
 import "./login.scss";
+import { Link } from "react-router-dom";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -17,17 +18,13 @@ export default function Login() {
     <div className="login">
       <div className="top">
         <div className="wrappeer">
-          <img
-            className="logo"
-            // src={backgroundLogin}
-            src="https://upload.wi/kimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/2560px-Netflix_2015_logo.svg.png"
-            alt=""
-          />
+          <header className="logo">
+            Full<em>Workout</em>
+          </header>
         </div>
       </div>
       <div className="containeer">
         <form>
-          <h1>Sign In</h1>
           <input
             type="email"
             placeholder="Email or phone number"
@@ -41,14 +38,11 @@ export default function Login() {
           <button className="loginButton" onClick={handleLogin}>
             Sign In
           </button>
-          <span>
-            New to Netflix? <b>Sign up now.</b>
-          </span>
-          <small>
-            This page is protected by Google reCAPTCHA to ensure you're not a
-            bot. <b>Learn more</b>.
-          </small>
         </form>
+        <p className="content">Don't have an account ?</p>
+        <Link to="register">
+          <button className="loginButton">Register</button>
+        </Link>
       </div>
     </div>
   );

@@ -34,7 +34,7 @@ function App() {
           </Route>
           {user && (
             <>
-              <Layout>
+              {/* <Layout> */}
                 <Route path="/about">
                   <About />
                 </Route>
@@ -47,7 +47,7 @@ function App() {
                 <Route path="/nutrition">
                   <Nutrition />
                 </Route>
-              </Layout>
+              {/* </Layout> */}
               <Route path="/watch">
                 <Watch />
               </Route>

@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useRef } from "react";
 import { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import "./register.scss";
 
 export default function Register() {
@@ -22,13 +22,13 @@ export default function Register() {
     setPassword(passwordRef.current.value);
     setUsername(usernameRef.current.value);
     try {
-      await axios.post("auth/register", { email,username, password });
+      await axios.post("auth/register", { email, username, password });
       history.push("/login");
     } catch (err) {}
   };
   return (
-    <div className="rregister">
-      <div className="top">
+    <div className="register">
+      {/* <div className="top">
         <div className="wwrapper">
           <img
             className="logo"
@@ -37,18 +37,18 @@ export default function Register() {
           />
           <button className="loginButton">Sign In</button>
         </div>
-      </div>
-      <div className="ccontainer">
-        <h1>Unlimited movies, TV shows, and more.</h1>
-        <h2>Watch anywhere. Cancel anytime.</h2>
-        <p>
-          Ready to watch? Enter your email to create or restart your membership.
-        </p>
+      </div> */}
+      <div className="container_header">
+        <h1 className="header_logo">
+          Full<em>Workout</em>
+        </h1>
+        {/* <h2>Watch anywhere. Cancel anytime.</h2> */}
+
         {!email ? (
           <div className="input">
             <input type="email" placeholder="email address" ref={emailRef} />
             <button className="registerButton" onClick={handleStart}>
-              Get Started
+              Register
             </button>
           </div>
         ) : (
@@ -60,6 +60,10 @@ export default function Register() {
             </button>
           </form>
         )}
+        <p className="content">Already have an account ?</p>
+        <Link to="/login">
+          <button className="loginButton">Login</button>
+        </Link>
       </div>
     </div>
   );

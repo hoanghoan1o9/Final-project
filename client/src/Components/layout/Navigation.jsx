@@ -5,6 +5,8 @@ import { AuthContext } from "../../authContext/AuthContext";
 import { logout } from "../../authContext/AuthActions";
 
 const Navigation = () => {
+  // const {  user:{state.user} } = useContext(AuthContext);
+
   const { dispatch } = useContext(AuthContext);
   const [isScrolled, setIsScrolled] = useState(false);
 
