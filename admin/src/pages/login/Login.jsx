@@ -15,6 +15,7 @@ export default function Login() {
 
   return (
     <div className="login">
+      <header className="logo">ADMINISTRATOR</header>
       <form className="loginForm">
         <input
           type="text"

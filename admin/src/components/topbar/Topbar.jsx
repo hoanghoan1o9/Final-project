@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./topbar.css";
 import { NotificationsNone, Language, Settings } from "@material-ui/icons";
-
+import { AuthContext } from "../../context/authContext/AuthContext";
+import { logout } from "../../context/authContext/AuthAction";
 export default function Topbar() {
+  const { dispatch } = useContext(AuthContext);
   return (
     <div className="topbar">
       <div className="topbarWrapper">
@@ -26,6 +28,9 @@ export default function Topbar() {
             alt=""
             className="topAvatar"
           />
+          <div className="logout" onClick={() => dispatch(logout())}>
+            Logout
+          </div>
         </div>
       </div>
     </div>

@@ -55,3 +55,18 @@
   border-radius: 50%;
   cursor: pointer;
 }
+
+.logout {
+  padding: 4px;
+  margin-left: 20px;
+  font-size: 0.8rem;
+  color: #fff;
+  border-radius: 4px;
+  background-color: rgb(128, 123, 123);
+}
+
+.logout:hover {
+  cursor: pointer;
+  background-color: rgb(121, 117, 117);
+  color: #000;
+}

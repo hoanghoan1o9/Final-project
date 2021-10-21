@@ -17,13 +17,13 @@ export default function Login() {
   return (
     <div className="login">
       <div className="top">
-        <div className="wrappeer">
+        <div className="wrapper_login">
           <header className="logo">
             Full<em>Workout</em>
           </header>
         </div>
       </div>
-      <div className="containeer">
+      <div className="container_login">
         <form>
           <input
             type="email"
