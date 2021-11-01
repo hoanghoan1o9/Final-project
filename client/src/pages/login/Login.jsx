@@ -27,7 +27,7 @@ export default function Login() {
         <form>
           <input
             type="email"
-            placeholder="Email or phone number"
+            placeholder="Email"
             onChange={(e) => setEmail(e.target.value)}
           />
           <input

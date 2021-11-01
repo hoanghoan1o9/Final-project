@@ -23,7 +23,7 @@ export default function ListItem({ index, item }) {
           },
         });
         setMovie(res.data);
-        console.log(res);
+        // console.log(res);
       } catch (err) {
         console.log(err);
       }

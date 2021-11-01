@@ -16,7 +16,7 @@ export default function Featured({ type, setGenre }) {
           },
         });
         setContent(res.data[0]);
-        console.log(res);
+        // console.log(res);
       } catch (err) {
         console.log(err);
       }
@@ -24,7 +24,7 @@ export default function Featured({ type, setGenre }) {
     getRandomContent();
   }, [type]);
 
-  console.log(content);
+  // console.log(content);
   return (
     <div className="featured">
       {type && (

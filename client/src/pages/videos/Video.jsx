@@ -18,7 +18,8 @@ const Video = ({ type }) => {
           {
             headers: {
               token:
-                "Bearer "+JSON.parse(localStorage.getItem("user")).accessToken,
+                "Bearer " +
+                JSON.parse(localStorage.getItem("user")).accessToken,
             },
           }
         );
@@ -32,8 +33,8 @@ const Video = ({ type }) => {
   return (
     <div className="video">
       <Featured type={type} setGenre={setGenre} />
-      {lists.map((list) => (
-        <List list={list} />
+      {lists.map((list, i) => (
+        <List key={i} list={list} />
       ))}
     </div>
   );

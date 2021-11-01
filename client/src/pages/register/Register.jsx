@@ -28,22 +28,10 @@ export default function Register() {
   };
   return (
     <div className="register">
-      {/* <div className="top">
-        <div className="wrapper_register">
-          <img
-            className="logo"
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/2560px-Netflix_2015_logo.svg.png"
-            alt=""
-          />
-          <button className="loginButton">Sign In</button>
-        </div>
-      </div> */}
       <div className="container_header">
         <h1 className="header_logo">
           Full<em>Workout</em>
         </h1>
-        {/* <h2>Watch anywhere. Cancel anytime.</h2> */}
-
         {!email ? (
           <div className="input">
             <input type="email" placeholder="email address" ref={emailRef} />

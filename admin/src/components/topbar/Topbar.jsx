@@ -24,7 +24,7 @@ export default function Topbar() {
             <Settings />
           </div>
           <img
-            src="https://scontent.fdad2-1.fna.fbcdn.net/v/t1.6435-9/70262756_1177702899103434_73706303133843456_n.jpg?_nc_cat=107&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=dxoV_LYVSqAAX--C8o0&_nc_ht=scontent.fdad2-1.fna&oh=2764640c7090d14ea69ac5c175568864&oe=617450EE"
+            src="https://scontent.fdad2-1.fna.fbcdn.net/v/t1.6435-9/70262756_1177702899103434_73706303133843456_n.jpg?_nc_cat=107&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=ljqpJVLWu54AX9WD-Az&_nc_ht=scontent.fdad2-1.fna&oh=bceace6787d79a6bb795f1c5bbf944d5&oe=61A3C6EE"
             alt=""
             className="topAvatar"
           />
