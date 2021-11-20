@@ -5,7 +5,9 @@ import { AuthContext } from "../../authContext/AuthContext";
 import { logout } from "../../authContext/AuthActions";
 
 const Navigation = () => {
-  // const {  user:{state.user} } = useContext(AuthContext);
+  const {
+    user: { username },
+  } = useContext(AuthContext);
 
   const { dispatch } = useContext(AuthContext);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -53,7 +55,9 @@ const Navigation = () => {
           </NavLink>
         </li>
         <li>
-          <div>Welcome</div>
+          <div>
+            Welcome <em className="user">{username}</em>
+          </div>
         </li>
         <li>
           <div className="logout" onClick={() => dispatch(logout())}>

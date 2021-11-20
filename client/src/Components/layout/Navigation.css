@@ -111,3 +111,7 @@ li a.active {
 .logout:hover {
   cursor: pointer;
 }
+
+.user {
+  color: #61dafb;
+}
