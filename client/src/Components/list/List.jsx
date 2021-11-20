@@ -24,6 +24,7 @@ export default function List({ list }) {
       setSlideNumber(slideNumber + 1);
       listRef.current.style.transform = `translateX(${-230 + distance}px)`;
     }
+    console.log(setClickLimit);
   };
   return (
     <div className="list_list">

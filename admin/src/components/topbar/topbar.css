@@ -5,6 +5,7 @@
   position: sticky;
   top: 0;
   z-index: 999;
+  box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 1);
 }
 
 .topbarWrapper {
@@ -15,11 +16,17 @@
   justify-content: space-between;
 }
 
-.logo {
+.link {
+  text-decoration: none;
+}
+
+.logo2 {
   font-weight: bold;
-  font-size: 30px;
-  color: darkblue;
   cursor: pointer;
+  color: #61dafb;
+  font-weight: bold;
+  font-size: 2.4rem;
+  /* box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75); */
 }
 
 .topRight {

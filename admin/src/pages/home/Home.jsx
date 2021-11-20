@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useMemo } from "react";
 import Chart from "../../components/chart/Chart";
-import FeaturedInfo from "../../components/featuredInfo/FeaturedInfo";
+// import FeaturedInfo from "../../components/featuredInfo/FeaturedInfo";
 import WidgetSm from "../../components/widgetSm/WidgetSm";
-import WidgetLg from "../../components/widgetLg/WidgetLg";
+// import WidgetLg from "../../components/widgetLg/WidgetLg";
 // import { userData } from "../../dummyData";
 import "./home.css";
 import axios from "axios";
@@ -55,11 +55,11 @@ const Home = () => {
 
   return (
     <div className="home">
-      <FeaturedInfo />
+      {/* <FeaturedInfo /> */}
       <Chart data={userStats} title="User Analytics" grid dataKey="New User" />
       <div className="homeWidgets">
         <WidgetSm />
-        <WidgetLg />
+        {/* <WidgetLg /> */}
       </div>
     </div>
   );

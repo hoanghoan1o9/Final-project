@@ -12,7 +12,7 @@ import Nutrition from "./pages/nutrutions/Nutrition";
 import About from "./pages/about/About";
 import CalculateBMI from "./Components/threecount/CalculateBMI";
 import BRM_TDEE from "./Components/threecount/BRM_TDEE";
-// import Layout from "./Components/layout/Layout";
+import Layout from "./Components/layout/Layout";
 import Watch from "./pages/watch/Watch";
 import Video from "./pages/videos/Video";
 import Login from "./pages/login/Login";
@@ -34,7 +34,7 @@ function App() {
           </Route>
           {user && (
             <>
-              {/* <Layout> */}
+              <Layout>
                 <Route path="/about">
                   <About />
                 </Route>
@@ -47,7 +47,7 @@ function App() {
                 <Route path="/nutrition">
                   <Nutrition />
                 </Route>
-              {/* </Layout> */}
+              </Layout>
               <Route path="/watch">
                 <Watch />
               </Route>
