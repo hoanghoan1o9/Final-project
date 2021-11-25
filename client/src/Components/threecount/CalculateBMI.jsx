@@ -1,7 +1,12 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useContext } from "react";
 import { Link } from "react-router-dom";
+import { BmiContext } from "../bmiContext/BmiContext";
+import { createBmi } from "../bmiContext/apiCalls";
 
 const CalculateBMI = () => {
+  const { dispatch } = useContext(BmiContext);
+  const [bmi, setBmi] = useState(null);
+
   const [height, setHeight] = useState("");
   const [weight, setWeight] = useState("");
   const [bmiResult, setBmiResult] = useState(null);
@@ -10,11 +15,14 @@ const CalculateBMI = () => {
   const heightRef = useRef();
 
   function calculateBMI() {
-    let bmi = (weight / (height / 100) ** 2).toFixed(2);
+    const bmiScore = (+weight / (+height / 100) ** 2).toFixed(2);
 
-    setBmiResult(bmi);
+    setBmi({ ...bmi, bmi: bmiScore, height: height, weight: weight });
+    createBmi(bmi, dispatch);
 
-    let bmiStatus = getStatus(bmi);
+    setBmiResult(bmiScore);
+
+    let bmiStatus = getStatus(bmiScore);
 
     setStatus(bmiStatus);
     setHeight("");
@@ -23,11 +31,11 @@ const CalculateBMI = () => {
     heightRef.current.focus();
   }
 
-  function getStatus(bmi) {
-    if (bmi < 18.5) return "Underweight";
-    else if (bmi >= 18.5 && bmi < 24.9) return "Normal";
-    else if (bmi >= 25 && bmi <= 29.9) return "Overweight";
-    else if (bmi >= 30 && bmi <= 34.9) return "Obese";
+  function getStatus(bmiScore) {
+    if (bmiScore < 18.5) return "Underweight";
+    else if (bmiScore >= 18.5 && bmiScore < 24.9) return "Normal";
+    else if (bmiScore >= 25 && bmiScore <= 29.9) return "Overweight";
+    else if (bmiScore >= 30 && bmiScore <= 34.9) return "Obese";
     else return "Dangerous Obesity";
   }
 
@@ -94,6 +102,12 @@ const CalculateBMI = () => {
               </td>
             </tr>
             <tr>
+              <td>4</td>
+              <td style={{ fontWeight: "bold" }}>Your current bmi :</td>
+              <td></td>
+              {/* <td>{currentBmi}</td> */}
+            </tr>
+            <tr>
               <td>5</td>
               <td>
                 <em>Notice : If your BMI is</em>
@@ -123,8 +137,8 @@ const CalculateBMI = () => {
         </table>
       </div>
       <div>
-        <Link to="./bmr" className="back_button_nutrition">
-          Go to Calculate BMR
+        <Link to="./viewBmi" className="back_button_nutrition">
+          Lastest Result
         </Link>
       </div>
       <div>

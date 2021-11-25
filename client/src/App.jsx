@@ -21,6 +21,7 @@ import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
 import { useContext } from "react";
 import { AuthContext } from "./authContext/AuthContext";
+import ViewBmi from "./Components/viewBmi/ViewBmi";
 function App() {
   const { user } = useContext(AuthContext);
   return (
@@ -42,6 +43,9 @@ function App() {
                 </Route>
                 <Route path="/bmi">
                   <CalculateBMI />
+                </Route>
+                <Route path="/viewBmi">
+                  <ViewBmi />
                 </Route>
                 <Route path="/bmr">
                   <CalculateBRM />

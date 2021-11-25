@@ -26,9 +26,10 @@ router.post("/", verify, async (req, res) => {
 
   //simple validation
   if (!height || !weight)
-    return res
-      .status(400)
-      .json({ success: false, message: "Height and weight are required" });
+    return res.status(400).json({
+      success: false,
+      message: "Height and weight and bmi are required",
+    });
 
   try {
     const bmi = (weight / (height / 100) ** 2).toFixed(2);
@@ -37,6 +38,7 @@ router.post("/", verify, async (req, res) => {
       height: height,
       weight: weight,
     });
+    console.log(newBmi)
 
     await newBmi.save();
 
@@ -46,6 +48,21 @@ router.post("/", verify, async (req, res) => {
     res.status(500).json({ success: false, message: "Internal server error" });
   }
 });
+
+// router.post("/", verify, async (req, res) => {
+//   if (req.user.isAdmin) {
+//     const newBmi = new Bmi(req.body);
+
+//     try {
+//       const saveBmi = await newBmi.save();
+//       res.status(201).json(saveBmi);
+//     } catch (error) {
+//       res.status(500).json(error);
+//     }
+//   } else {
+//     res.status(403).json("you are not allowed !");
+//   }
+// });
 
 // @route DELETE api/bmis
 // @desc DELETE bmi

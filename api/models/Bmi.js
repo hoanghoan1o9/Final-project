@@ -5,7 +5,7 @@ const BmiSchema = new mongoose.Schema(
     result: { type: String, required: true },
     height: { type: String },
     weight: { type: String },
-    status: { type: String },
+    // status: { type: String },
     user: {
       type: Schema.Types.ObjectId,
       ref: "User",

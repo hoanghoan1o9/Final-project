@@ -76,3 +76,19 @@ tr:nth-child(even) {
   cursor: pointer;
   background: linear-gradient(90deg, #0162c8, #55e7fc);
 }
+
+.top-left_button_nutrition {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: linear-gradient(90deg, #55e7fc, #0162c8);
+  color: #fff;
+  border-radius: 10px;
+  margin: 10px;
+  padding: 10px;
+}
+
+.top-left_button_nutrition:hover {
+  cursor: pointer;
+  background: linear-gradient(90deg, #0162c8, #55e7fc);
+}
