@@ -18,7 +18,7 @@ export default function Login() {
     <div className="login">
       <div className="top">
         <div className="wrapper_login">
-          <header className="logo">
+          <header className="logo_login">
             Full<em>Workout</em>
           </header>
         </div>

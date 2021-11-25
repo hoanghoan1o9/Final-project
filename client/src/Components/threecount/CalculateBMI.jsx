@@ -1,13 +1,13 @@
-import React, { useState } from "react";
-import classes from "./CalculateBMI.module.css";
+import React, { useState, useRef } from "react";
+import { Link } from "react-router-dom";
 
 const CalculateBMI = () => {
-  const [height, setHeight] = useState(0);
-  const [weight, setWeight] = useState(0);
+  const [height, setHeight] = useState("");
+  const [weight, setWeight] = useState("");
   const [bmiResult, setBmiResult] = useState(null);
   const [status, setStatus] = useState("");
 
-  // State
+  const heightRef = useRef();
 
   function calculateBMI() {
     let bmi = (weight / (height / 100) ** 2).toFixed(2);
@@ -17,8 +17,10 @@ const CalculateBMI = () => {
     let bmiStatus = getStatus(bmi);
 
     setStatus(bmiStatus);
-    setHeight(0);
-    setWeight(0);
+    setHeight("");
+    setWeight("");
+
+    heightRef.current.focus();
   }
 
   function getStatus(bmi) {
@@ -30,64 +32,105 @@ const CalculateBMI = () => {
   }
 
   return (
-    <div className={classes.wrapper}>
-      <h1>
-        Calculate <em>BMI</em>
-      </h1>
-      <div className={classes.container}>
-        <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-          <div className="mb-4">
-            <label
-              className="block text-gray-700 text-sm font-bold mb-2"
-              htmlFor="height"
-            >
-              Height
-            </label>
-            <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="Height"
-              type="number"
-              placeholder="Height in cm"
-              onChange={(e) => setHeight(e.target.value)}
-            />
-          </div>
-          <div className="mb-4">
-            <label
-              className="block text-gray-700 text-sm font-bold mb-2"
-              htmlFor="weight"
-            >
-              Weight
-            </label>
-            <input
-              className="shadow appearance-none rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-              id="Weight"
-              type="number"
-              placeholder="Weight in kg"
-              onChange={(e) => setWeight(e.target.value)}
-            />
-          </div>
-          <div className="flex items-center justify-center">
-            <button
-              // disabled={disabled}
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-              type="button"
-              onClick={calculateBMI}
-              disabled={!weight || !height}
-            >
-              Calculate BMI
-            </button>
-          </div>
-          {bmiResult && (
-            <div className={classes.result}>
-              <p>
-                Your BMI is: <em>{bmiResult}</em>
-              </p>
-              <p>
-                You are currently :<em>{status}</em>
-              </p>
-            </div>
-          )}
-        </form>
+    <div className="container_nutrition">
+      <div>
+        <table>
+          <tbody>
+            <tr>
+              <th>#</th>
+              <th>Calculate BMI</th>
+              <th>
+                <button
+                  style={{ fontWeight: "bold" }}
+                  className="button_nutrition"
+                  onClick={calculateBMI}
+                  disabled={!weight || !height}
+                >
+                  Calculate
+                </button>
+              </th>
+            </tr>
+            <tr>
+              <td style={{ backgroundColor: "#fafafa" }}>1</td>
+              <td style={{ fontWeight: "bold", backgroundColor: "#fafafa" }}>
+                Enter your height
+              </td>
+              <td style={{ fontWeight: "bold", backgroundColor: "#eeeeee" }}>
+                <input
+                  placeholder="Your height in cm"
+                  style={{ padding: "5px", borderRadius: "5px" }}
+                  type="number"
+                  ref={heightRef}
+                  value={height}
+                  onChange={(e) => setHeight(Math.abs(e.target.value))}
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td style={{ fontWeight: "bold" }}>Enter your weight</td>
+              <td style={{ fontWeight: "bold", backgroundColor: "#eeeeee" }}>
+                <input
+                  placeholder="Your weight in kg"
+                  style={{ padding: "5px", borderRadius: "5px" }}
+                  type="number"
+                  value={weight}
+                  onChange={(e) => setWeight(Math.abs(e.target.value))}
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td style={{ fontWeight: "bold" }}>Your Bmi is :</td>
+              <td>
+                <em>{bmiResult}</em>
+              </td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td style={{ fontWeight: "bold" }}>You are currently :</td>
+              <td>
+                <em>{status}</em>
+              </td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>
+                <em>Notice : If your BMI is</em>
+              </td>
+              <td>
+                <p>
+                  lower than <em>18.5</em> you are <em>"Underweight"</em>
+                </p>
+                <p>
+                  higher or equal <em>18.5</em> && lower <em>24.9</em> you are{" "}
+                  <em>"Normal"</em>
+                </p>
+                <p>
+                  higher or equal <em>25</em> && lower or equal <em>29.9</em>
+                  <em>"Overweight"</em>
+                </p>
+                <p>
+                  higher or equal <em>30</em> && lower or equal <em>34.9</em>{" "}
+                  <em>"Obese"</em>
+                </p>
+                <p>
+                  higher than <em>35</em> you are <em>"Dangerous Obesity"</em>
+                </p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <Link to="./bmr" className="back_button_nutrition">
+          Go to Calculate BMR
+        </Link>
+      </div>
+      <div>
+        <Link to="./" className="forward_button_nutrition">
+          Home
+        </Link>
       </div>
     </div>
   );

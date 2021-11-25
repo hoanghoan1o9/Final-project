@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
+import { Link } from "react-router-dom";
 
-import classes from "./CalculateBMR.module.css";
 
 const CalculateBRM = () => {
-  const [height, setHeight] = useState(0);
-  const [weight, setWeight] = useState(0);
-  const [age, setAge] = useState(0);
+  const [height, setHeight] = useState("");
+  const [weight, setWeight] = useState("");
+  const [age, setAge] = useState("");
   const [gender, setGender] = useState("");
   const [bmrResult, setBmrResult] = useState(null);
+
+  const heightRef = useRef();
 
   function CalculateBMR() {
     let bmr;
@@ -17,101 +19,124 @@ const CalculateBRM = () => {
       bmr = Math.round(10 * weight + 6.25 * height - 5 * age - 161);
     } else return null;
     setBmrResult(bmr);
+    setHeight("");
+    setWeight("");
+    setAge("");
+    heightRef.current.focus();
   }
 
   return (
-    <div className={classes.wrapper}>
-      <h1>
-        Calculate <em>BMR</em>
-      </h1>
-      <div className={classes.container}>
-        <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-          <div className="mb-4">
-            <label
-              className="block text-gray-700 text-sm font-bold mb-2"
-              htmlFor="Height"
-            >
-              Height
-            </label>
-            <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="Height"
-              type="number"
-              placeholder="Height in cm"
-              onChange={(e) => setHeight(e.target.value)}
-            />
-          </div>
-          <div className="mb-4">
-            <label
-              className="block text-gray-700 text-sm font-bold mb-2"
-              htmlFor="Weight"
-            >
-              Weight
-            </label>
-            <input
-              className="shadow appearance-none rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-              id="weight"
-              type="number"
-              placeholder="Weight in kg"
-              onChange={(e) => setWeight(e.target.value)}
-            />
-          </div>
-          <div className="mb-4">
-            <label
-              className="block text-gray-700 text-sm font-bold mb-2"
-              htmlFor="Age"
-            >
-              Age
-            </label>
-            <input
-              className="shadow appearance-none rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-              id="weight"
-              type="number"
-              placeholder="Age in year"
-              onChange={(e) => setAge(e.target.value)}
-            />
-          </div>
-          <div className="mb-4">
-            <label
-              className="block text-gray-700 text-sm font-bold mb-2"
-              htmlFor="gender"
-            >
-              Choose your gender
-            </label>
-            <select
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              value={gender}
-              onChange={(e) => {
-                const selectedGender = e.target.value;
-                setGender(selectedGender);
-              }}
-            >
-              <option>-----Choose-----</option>
-              <option value="Male">Male</option>
-              <option value="Female">Female</option>
-            </select>
-          </div>
-          <div className="flex items-center justify-center">
-            <button
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-              type="button"
-              onClick={CalculateBMR}
-              disabled={!weight || !height || !age || !gender}
-            >
-              Calculate
-            </button>
-          </div>
-          {bmrResult && (
-            <div className={classes.result}>
-              <p>
-                Your BMR is: <em>{bmrResult}</em>{" "}
-              </p>
-              <p>
-                You need <em>{bmrResult}</em> calories per day{" "}
-              </p>
-            </div>
-          )}
-        </form>
+    <div className="container_nutrition">
+      <div>
+        <table>
+          <tbody>
+            <tr>
+              <th>#</th>
+              <th>Calculate BMR</th>
+              <th>
+                <button
+                  style={{ fontWeight: "bold" }}
+                  className="button_nutrition"
+                  onClick={CalculateBMR}
+                  disabled={!weight || !height || !age || !gender}
+                >
+                  Calculate
+                </button>
+              </th>
+            </tr>
+            <tr>
+              <td style={{ backgroundColor: "#fafafa" }}>1</td>
+              <td style={{ fontWeight: "bold", backgroundColor: "#fafafa" }}>
+                Enter your height
+              </td>
+              <td style={{ fontWeight: "bold", backgroundColor: "#eeeeee" }}>
+                <input
+                  placeholder="Your height in cm"
+                  style={{ padding: "5px", borderRadius: "5px" }}
+                  type="number"
+                  ref={heightRef}
+                  value={height}
+                  onChange={(e) => setHeight(Math.abs(e.target.value))}
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td style={{ fontWeight: "bold" }}>Enter your weight</td>
+              <td style={{ fontWeight: "bold", backgroundColor: "#eeeeee" }}>
+                <input
+                  placeholder="Your weight in kg"
+                  style={{ padding: "5px", borderRadius: "5px" }}
+                  type="number"
+                  value={weight}
+                  onChange={(e) => setWeight(Math.abs(e.target.value))}
+                />
+              </td>
+            </tr>
+            <tr>
+              <td style={{ backgroundColor: "#fafafa" }}>3</td>
+              <td style={{ fontWeight: "bold", backgroundColor: "#fafafa" }}>
+                Enter your age
+              </td>
+              <td style={{ fontWeight: "bold" }}>
+                <input
+                  placeholder="Age in year"
+                  style={{ padding: "5px", borderRadius: "5px" }}
+                  type="number"
+                  value={age}
+                  onChange={(e) => setAge(Math.abs(e.target.value))}
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td style={{ fontWeight: "bold" }}>Choose your gender</td>
+              <td>
+                <select
+                  value={gender}
+                  onChange={(e) => {
+                    const selectedGender = e.target.value;
+                    setGender(selectedGender);
+                  }}
+                >
+                  <option>-----Choose-----</option>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>
+                <em>Your BMR is :</em>
+              </td>
+              <td>
+                <em>{bmrResult}</em>
+              </td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>
+                <em>Notice :</em>
+              </td>
+              <td>
+                Basal Metabolic Rate is the number of calories required to keep
+                your body functioning at rest. BMR is also known as your body's
+                metabolism.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <Link to="./tdee" className="back_button_nutrition">
+          Go to Calculate TDEE
+        </Link>
+      </div>
+      <div>
+        <Link to="./bmi" className="forward_button_nutrition">
+          Go to Count BMI
+        </Link>
       </div>
     </div>
   );

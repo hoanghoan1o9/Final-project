@@ -14,13 +14,14 @@
       .wrapper_login {
         display: flex;
         align-items: center;
-        justify-content: space-between;
   
-        .logo {
+        .logo_login {
           height: 20vh;
           color: #fff;
           font-weight: bold;
           font-size:3.4rem;
+          margin: auto;
+          padding-top: 40px;
           em {
             color: #61dafb;
   

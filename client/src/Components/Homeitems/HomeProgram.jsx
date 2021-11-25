@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { Link } from "react-router-dom";
 import classes from "./HomeProgram.module.css";
 
@@ -7,8 +7,8 @@ const HomeProgram = () => {
     <section className={classes.wrapper}>
       <div className={classes.column}>
         <h2 className={classes.section_heading}>
-          CHOOSE
-          <em> PROGRAM</em>
+          MEASURE
+          <em> THE FUNDAMENTALS</em>
         </h2>
         <p>
           Full Workout is all free for you. Here you can calculate your own Body
@@ -71,4 +71,4 @@ const HomeProgram = () => {
   return <>{body}</>;
 };
 
-export default HomeProgram;
+export default memo(HomeProgram);
