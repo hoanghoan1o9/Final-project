@@ -21,7 +21,6 @@
   font-weight: 800;
   color: #61dafb;
   letter-spacing: 0.5px;
-  -webkit-user-select: none
 }
 
 .main_caption h2 {
@@ -32,7 +31,6 @@
   font-weight: 800;
   color: #fff;
   letter-spacing: 1px;
-  -webkit-user-select: none;
 }
 
 .main_caption em {
@@ -42,21 +40,3 @@
   font-weight: 900;
 }
 
-/* .main_caption a {
-  display: inline-block;
-  font-size: 15px;
-  padding: 12px 20px;
-  background-color: #61dafb;
-  color: #fff;
-  text-align: center;
-  font-weight: 400;
-  transition: all 0.3s;
-  text-decoration: none;
-  border-radius: 8px;
-  text-transform: uppercase;
-  -webkit-user-select: none
-}
-
-.main_caption a:hover {
-  background-color: #0c88aa; 
-} */

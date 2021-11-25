@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { Link } from "react-router-dom";
 import classes from "./HomeNutrition.module.css";
 import protein from "../../assets/images/protein.jpg";
@@ -142,4 +143,4 @@ const HomeNutrition = () => {
   return <>{body}</>;
 };
 
-export default HomeNutrition;
+export default memo(HomeNutrition);

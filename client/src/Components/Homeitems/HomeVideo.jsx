@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, memo } from "react";
 // import { Link } from "react-router-dom";
 import video from "../../assets/images/gym-video.mp4";
 
@@ -21,4 +21,4 @@ const HomeVideo = () => {
   );
 };
 
-export default HomeVideo;
+export default memo(HomeVideo);

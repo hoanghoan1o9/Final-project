@@ -1,11 +1,12 @@
-import React, { useState } from "react";
-
-import classes from "./CalculateTDEE.module.css";
+import React, { useState, useRef } from "react";
+import { Link } from "react-router-dom";
 
 const CalculateTDEE = () => {
   const [bmr, setBMR] = useState("");
   const [tdeeResult, setTDEEResult] = useState(null);
   const [activity, setActivity] = useState("");
+
+  const bmrRef = useRef();
 
   function CalculateBMR() {
     let tdee;
@@ -22,77 +23,104 @@ const CalculateTDEE = () => {
     } else return null;
 
     setTDEEResult(tdee);
+    setBMR("");
+
+    bmrRef.current.focus();
   }
 
   return (
-    <div className={classes.wrapper}>
-      <h1>
-        Calculate <em>TDEE</em>
-      </h1>
-
-      <div className={classes.container}>
-        <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-          <div className="mb-4">
-            <label
-              className="block text-gray-700 text-sm font-bold mb-2"
-              htmlFor="bmr"
-            >
-              Your bmr
-            </label>
-            <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="bmr"
-              type="number"
-              placeholder="your bmr"
-              onChange={(e) => setBMR(e.target.value)}
-            />
-          </div>
-          <div className="mb-4">
-            <label
-              className="block text-gray-700 text-sm font-bold mb-2"
-              htmlFor="activity"
-            >
-              choose the number of training days
-            </label>
-            <select
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              value={activity}
-              onChange={(e) => {
-                const selectedGender = e.target.value;
-                setActivity(selectedGender);
-              }}
-            >
-              <option>-----Choose-----</option>
-              <option value="1">Just study, work (Without exercise)</option>
-              <option value="2">Exercise 1-3 times a week</option>
-              <option value="3">Exercise 4-5 times a week</option>
-              <option value="4">Exercise 6-7 times a week</option>
-              <option value="5">
-                exercise a lot, twice a day, 7 times a week
-              </option>
-            </select>
-          </div>
-          <div className="flex items-center justify-center">
-            <button
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-              type="button"
-              onClick={CalculateBMR}
-              disabled={!bmr || !activity}
-            >
-              Calculate
-            </button>
-          </div>
-          {tdeeResult && (
-            <div className={classes.result}>
-              <p>
-                Your TDEE is: <em>{tdeeResult}</em>{" "}
-              </p>
-              <p>
-                You need <em>{tdeeResult}</em> calories per day{" "}
-              </p>
-            </div>
-          )}
-        </form>
+    <div className="container_nutrition">
+      <div>
+        <table>
+          <tbody>
+            <tr>
+              <th>#</th>
+              <th>Calculate TDEE</th>
+              <th>
+                <button
+                  style={{ fontWeight: "bold" }}
+                  className="button_nutrition"
+                  onClick={CalculateBMR}
+                  disabled={!bmr || !activity}
+                >
+                  Calculate
+                </button>
+              </th>
+            </tr>
+            <tr>
+              <td style={{ backgroundColor: "#fafafa" }}>1</td>
+              <td style={{ fontWeight: "bold", backgroundColor: "#fafafa" }}>
+                Enter your BMR Index
+              </td>
+              <td style={{ fontWeight: "bold", backgroundColor: "#eeeeee" }}>
+                <input
+                  placeholder="Your bmr index"
+                  style={{ padding: "5px", borderRadius: "5px" }}
+                  type="number"
+                  ref={bmrRef}
+                  value={bmr}
+                  onChange={(e) => setBMR(e.target.value)}
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td style={{ fontWeight: "bold" }}>
+                choose the number of training days
+              </td>
+              <td style={{ fontWeight: "bold", backgroundColor: "#eeeeee" }}>
+                <select
+                  value={activity}
+                  onChange={(e) => {
+                    const selectedGender = e.target.value;
+                    setActivity(selectedGender);
+                  }}
+                >
+                  <option>-----Choose-----</option>
+                  <option value="1">Just study, work (Without exercise)</option>
+                  <option value="2">Exercise 1-3 times a week</option>
+                  <option value="3">Exercise 4-5 times a week</option>
+                  <option value="4">Exercise 6-7 times a week</option>
+                  <option value="5">
+                    exercise a lot, twice a day, 7 times a week
+                  </option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td style={{ fontWeight: "bold", backgroundColor: "#fafafa" }}>
+                3
+              </td>
+              <td style={{ backgroundColor: "#fafafa" }}>
+                <em>Your TDEE is</em>
+              </td>
+              <td>
+                <em>{tdeeResult}</em>
+              </td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>
+                <em>Notice :</em>
+              </td>
+              <td>
+                TDEE (Total Daily Energy Expenditure) is an index of calories
+                (energy) the body burns in 1 day, including all physical
+                activities, eating, breathing, sleeping, exercising in 1 day.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <Link to="./nutrition" className="back_button_nutrition">
+          Go to Nutrition
+        </Link>
+      </div>
+      <div>
+        <Link to="./bmr" className="forward_button_nutrition">
+          Go to Count BMR
+        </Link>
       </div>
     </div>
   );

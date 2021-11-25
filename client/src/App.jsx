@@ -9,9 +9,11 @@ import {
 import Home from "./pages/home/Home";
 // import Navigation from "./Components/layout/Navigation";
 import Nutrition from "./pages/nutrutions/Nutrition";
+import DetailsNutrition from "./pages/nutrutions/DetailsNutrition";
 import About from "./pages/about/About";
 import CalculateBMI from "./Components/threecount/CalculateBMI";
-import BRM_TDEE from "./Components/threecount/BRM_TDEE";
+import CalculateBRM from "./Components/threecount/CalculateBMR";
+import CalculateTDEE from "./Components/threecount/CalculateTDEE";
 import Layout from "./Components/layout/Layout";
 import Watch from "./pages/watch/Watch";
 import Video from "./pages/videos/Video";
@@ -41,11 +43,17 @@ function App() {
                 <Route path="/bmi">
                   <CalculateBMI />
                 </Route>
-                <Route path="/brm_tdee">
-                  <BRM_TDEE />
+                <Route path="/bmr">
+                  <CalculateBRM />
+                </Route>
+                <Route path="/tdee">
+                  <CalculateTDEE />
                 </Route>
                 <Route path="/nutrition">
                   <Nutrition />
+                </Route>
+                <Route path="/detailsNutrition">
+                  <DetailsNutrition />
                 </Route>
               </Layout>
               <Route path="/watch">

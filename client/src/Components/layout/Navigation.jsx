@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import "./Navigation.css";
 import { AuthContext } from "../../authContext/AuthContext";
 import { logout } from "../../authContext/AuthActions";
+// import proA from "../../assets/images/profile.jpg"
 
 const Navigation = () => {
   const {
@@ -18,7 +19,7 @@ const Navigation = () => {
   };
   return (
     <header className={isScrolled ? "header" : "headerScroll"}>
-      <NavLink to="/" className="logo">
+      <NavLink to="/" className="logoNav">
         Full
         <em>Workout</em>
         {/* <img src="./images/LOGO.png" all="Logo" className=logo /> */}
@@ -45,26 +46,41 @@ const Navigation = () => {
           </NavLink>
         </li> */}
         <li>
-          <NavLink to="/brm_tdee" activeClassName="active">
+          <NavLink to="/bmr" activeClassName="active">
+            BMR
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/tdee" activeClassName="active">
             TDEE
           </NavLink>
         </li>
         <li>
-          <NavLink to="/videos" activeClassName="active">
-            Video
+          <NavLink to="/nutrition" activeClassName="active">
+            Nutrition
           </NavLink>
         </li>
         <li>
-          <div>
-            Welcome <em className="user">{username}</em>
-          </div>
+          <NavLink to="/videos" activeClassName="active">
+            Programs
+          </NavLink>
         </li>
-        <li>
-          <div className="logout" onClick={() => dispatch(logout())}>
-            Logout
-          </div>
-        </li>
+        {/* <li>
+          <div className="user"> {username}</div>
+        </li> */}
       </ul>
+      <div className="Wrapper_Logout">
+        {/* <img
+          // src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.istockphoto.com%2Fillustrations%2Fprofile-view&psig=AOvVaw0gSsojI7YMMgeoz3JKKrCv&ust=1637512776901000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCNj3ndOwp_QCFQAAAAAdAAAAABAD"
+          src={proA}
+          alt="Avatar"
+          className="topAvatar"
+        /> */}
+        <div className="user">{username}</div>
+        <div className="logout" onClick={() => dispatch(logout())}>
+          Logout
+        </div>
+      </div>
     </header>
   );
 };
