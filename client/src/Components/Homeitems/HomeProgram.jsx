@@ -46,7 +46,7 @@ const HomeProgram = () => {
               the minimum level of energy that sustains life and serves the
               basic elements.
             </p>
-            <Link to="/brm_tdee">calculate</Link>
+            <Link to="/bmr">calculate</Link>
           </li>
         </div>
         <div className={classes.card}>
@@ -62,7 +62,7 @@ const HomeProgram = () => {
               the body in a day including all the sleeping and eating activities
               you have during the day.
             </p>
-            <Link to="/brm_tdee">calculate</Link>
+            <Link to="/tdee">calculate</Link>
           </li>
         </div>
       </div>

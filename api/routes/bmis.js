@@ -28,7 +28,7 @@ router.post("/", verify, async (req, res) => {
   if (!height || !weight)
     return res.status(400).json({
       success: false,
-      message: "Height and weight and bmi are required",
+      message: "Height and weight are required",
     });
 
   try {
@@ -37,8 +37,9 @@ router.post("/", verify, async (req, res) => {
       result: bmi,
       height: height,
       weight: weight,
+      user: req.userId,
     });
-    console.log(newBmi)
+    console.log(newBmi);
 
     await newBmi.save();
 
@@ -49,20 +50,6 @@ router.post("/", verify, async (req, res) => {
   }
 });
 
-// router.post("/", verify, async (req, res) => {
-//   if (req.user.isAdmin) {
-//     const newBmi = new Bmi(req.body);
-
-//     try {
-//       const saveBmi = await newBmi.save();
-//       res.status(201).json(saveBmi);
-//     } catch (error) {
-//       res.status(500).json(error);
-//     }
-//   } else {
-//     res.status(403).json("you are not allowed !");
-//   }
-// });
 
 // @route DELETE api/bmis
 // @desc DELETE bmi
@@ -71,12 +58,13 @@ router.delete("/:id", verify, async (req, res) => {
   try {
     const bmiDeleteCondition = { _id: req.params.id, user: req.userId };
     const deleteBmi = await Bmi.findByIdAndDelete(bmiDeleteCondition);
+    console.log(user)
 
     // User not authorized to delete bmi or bmi not found
     if (!deleteBmi)
       return res.status(401).json({
         success: false,
-        message: " User not authorized to update bmi or bmi not found",
+        message: " User not authorized to delete bmi or bmi not found",
       });
 
     res.json({

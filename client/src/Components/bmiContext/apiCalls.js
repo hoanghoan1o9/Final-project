@@ -44,7 +44,7 @@ export const createBmi = async (bmi, dispatch) => {
 export const deleteBmi = async (id, dispatch) => {
   dispatch(deleteBmiStart());
   try {
-    await axios.delete("/lists/" + id, {
+    await axios.delete("/bmis/" + id, {
       headers: {
         token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
       },

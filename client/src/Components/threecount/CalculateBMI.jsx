@@ -19,6 +19,7 @@ const CalculateBMI = () => {
 
     setBmi({ ...bmi, bmi: bmiScore, height: height, weight: weight });
     createBmi(bmi, dispatch);
+    // console.log(bmi);
 
     setBmiResult(bmiScore);
 

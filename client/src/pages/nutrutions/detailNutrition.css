@@ -92,3 +92,11 @@ tr:nth-child(even) {
   cursor: pointer;
   background: linear-gradient(90deg, #0162c8, #55e7fc);
 }
+
+.normal-button {
+  color: rgb(236, 20, 20);
+  border-radius: 5px;
+  margin: 4px;
+  padding: 4px;
+  background-color: silver;
+}

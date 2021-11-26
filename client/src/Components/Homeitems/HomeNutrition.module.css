@@ -49,56 +49,6 @@ p {
   flex-wrap: wrap;
   padding-top: 60px;
 }
-/* 
-.container .card {
-  position: relative;
-  max-width: 300px;
-  height: 215px;
-  background-color: #fff;
-  margin: 30px 10px;
-  padding: 20px 15px;
-  display: flex;
-  flex-direction: column;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
-  transition: 0.3s ease-in-out;
-}
-
-.container .card:hover {
-  height: 400px;
-}
-
-.container .card .imgBx {
-  position: relative;
-  width: 260px;
-  height: 257px;
-  object-fit: cover;
-  top: -60px;
-  left: 20px;
-  z-index: 1;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-}
-
-.container .card .imgBx img {
-  max-width: 100%;
-  border-radius: 4px;
-}
-
-.container .card .content {
-  position: relative;
-  margin-top: -14px;
-  padding: 0;
-  text-align: center;
-  visibility: hidden;
-  opacity: 0;
-  transition: 0.3s ease-out;
-}
-
-.container .card:hover .content {
-  visibility: visible;
-  opacity: 1;
-  margin-top: -40px;
-  transition-delay: 0.3s;
-} */
 
 .wrapper_card {
   max-width: 1200px;

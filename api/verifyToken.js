@@ -2,17 +2,43 @@ const jwt = require("jsonwebtoken");
 
 function verify(req, res, next) {
   const authHeader = req.headers.token;
-  if (authHeader) {
-    const token = authHeader.split(" ")[1];
+  const token = authHeader.split(" ")[1];
+  if (!token)
+    return res
+      .status(401)
+      .json({ success: false, message: "Access token not found" });
+  try {
+    const decoded = jwt.verify(token, process.env.SECRET_KEY);
 
-    jwt.verify(token, process.env.SECRET_KEY, (err, user) => {
-      if (err) res.status(403).json("Token is not valid!!");
-      req.user = user;
-      next();
-    });
-  } else {
-    return res.status(401).json("you are not authenticated !!!");
+    req.userId = decoded.userId;
+    next();
+  } catch (error) {
+    console.log(error);
+    return res.status(403).json({ success: false, message: "Invalid token" });
   }
 }
 
 module.exports = verify;
+
+// const jwt = require("jsonwebtoken");
+
+// const verify = (req, res, next) => {
+//   const authHeader = req.header("Authorization");
+//   const token = authHeader && authHeader.split(" ")[1];
+//   if (!token)
+//     return res
+//       .status(401)
+//       .json({ success: false, message: "Access token not found" });
+
+//   try {
+//     const decoded = jwt.verify(token, process.env.SECRET_KEY);
+//     req.userId = decoded.userId;
+
+//     next();
+//   } catch (error) {
+//     console.log(error);
+//     return res.status(403).json({ success: false, message: "Invalid token" });
+//   }
+// };
+
+// module.exports = verify;
