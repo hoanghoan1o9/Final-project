@@ -16,6 +16,7 @@ const HomeProgram = () => {
           most suitable diet and exercise program for you.
         </p>
       </div>
+
       <div className={classes.container}>
         <div className={classes.card}>
           <span></span>
@@ -33,6 +34,7 @@ const HomeProgram = () => {
             <Link to="/bmi">calculate</Link>
           </li>
         </div>
+
         <div className={classes.card}>
           <span></span>
           <span></span>
@@ -49,6 +51,7 @@ const HomeProgram = () => {
             <Link to="/bmr">calculate</Link>
           </li>
         </div>
+
         <div className={classes.card}>
           <span></span>
           <span></span>
@@ -65,6 +68,7 @@ const HomeProgram = () => {
             <Link to="/tdee">calculate</Link>
           </li>
         </div>
+        
       </div>
     </section>
   );

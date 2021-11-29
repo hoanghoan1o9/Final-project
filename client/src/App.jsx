@@ -1,16 +1,8 @@
-import React from "react";
-import {
-  Route,
-  Switch,
-  BrowserRouter as Router,
-  Redirect,
-} from "react-router-dom";
-
+import React,{ useContext } from "react";
+import {Route, Switch, BrowserRouter as Router, Redirect,} from "react-router-dom";
 import Home from "./pages/home/Home";
-// import Navigation from "./Components/layout/Navigation";
 import Nutrition from "./pages/nutrutions/Nutrition";
 import DetailsNutrition from "./pages/nutrutions/DetailsNutrition";
-import About from "./pages/about/About";
 import CalculateBMI from "./Components/threecount/CalculateBMI";
 import CalculateBRM from "./Components/threecount/CalculateBMR";
 import CalculateTDEE from "./Components/threecount/CalculateTDEE";
@@ -19,7 +11,6 @@ import Watch from "./pages/watch/Watch";
 import Video from "./pages/videos/Video";
 import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
-import { useContext } from "react";
 import { AuthContext } from "./authContext/AuthContext";
 import ViewBmi from "./Components/viewBmi/ViewBmi";
 function App() {
@@ -35,12 +26,8 @@ function App() {
           <Route path="/register">
             {!user ? <Register /> : <Redirect to="/" />}
           </Route>
-          {user && (
-            <>
+          {user && ( <>
               <Layout>
-                <Route path="/about">
-                  <About />
-                </Route>
                 <Route path="/bmi">
                   <CalculateBMI />
                 </Route>
@@ -69,8 +56,7 @@ function App() {
               <Route path="/videos">
                 <Video type="series" />
               </Route>
-            </>
-          )}
+            </> )}
         </Switch>
       </Router>
     </div>

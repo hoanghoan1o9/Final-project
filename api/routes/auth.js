@@ -9,10 +9,13 @@ const User = require("../models/User");
 router.post("/register", async (req, res) => {
   const { email, username, password } = req.body;
 
-  if (!username || !password)
+  if (!username || !password || !email)
     return res
       .status(400)
-      .json({ success: false, message: "Missing username and/or password" });
+      .json({
+        success: false,
+        message: "Missing username and/or password and/or email",
+      });
 
   try {
     const user = await User.findOne({ email: email });
@@ -21,7 +24,6 @@ router.post("/register", async (req, res) => {
       return res
         .status(400)
         .json({ success: false, message: "Email already be used" });
-
     const hashedPassword = await argon2.hash(password);
     const newUser = new User({
       email: email,
@@ -29,13 +31,11 @@ router.post("/register", async (req, res) => {
       password: hashedPassword,
     });
     await newUser.save();
-
     // Return token
     const accessToken = jwt.sign(
       { userId: newUser._id, isAdmin: newUser.isAdmin },
       process.env.SECRET_KEY
     );
-
     res.json({
       success: true,
       message: "User created successfully",
@@ -49,9 +49,6 @@ router.post("/register", async (req, res) => {
 //Login
 router.post("/login", async (req, res) => {
   const { email, password } = req.body;
-  console.log(email);
-
-  console.log(password);
 
   //simple validation
   if (!email || !password)
@@ -62,29 +59,30 @@ router.post("/login", async (req, res) => {
   try {
     //check if the user exists
     const user = await User.findOne({ email });
-    console.log(user)
+    console.log(user);
     if (!user)
-    return res
-    .status(400)
-    .json({ success: false, message: "Incorrect email or password" });
+      return res
+        .status(400)
+        .json({ success: false, message: "Incorrect email or password" });
     //Email found
     const passwordValid = await argon2.verify(user.password, password);
     if (!passwordValid)
-    return res
+      return res
         .status(401)
         .json({ success: false, message: "Incorrect email or password" });
 
     // All good
     // Return token
     const accessToken = jwt.sign(
-      { userId: user._id, isAdmin: user.isAdmin },
+      { id: user._id, isAdmin: user.isAdmin },
       process.env.SECRET_KEY
     );
 
-    const { ...info } = user._doc;
+    // const { ...info } = user._doc;
 
     res.status(200).json({
       success: true,
+      user:user,
       message: "User logged in successfully",
       accessToken,
     });

@@ -50,7 +50,6 @@ router.post("/", verify, async (req, res) => {
   }
 });
 
-
 // @route DELETE api/bmis
 // @desc DELETE bmi
 // @access Private
@@ -58,7 +57,6 @@ router.delete("/:id", verify, async (req, res) => {
   try {
     const bmiDeleteCondition = { _id: req.params.id, user: req.userId };
     const deleteBmi = await Bmi.findByIdAndDelete(bmiDeleteCondition);
-    console.log(user)
 
     // User not authorized to delete bmi or bmi not found
     if (!deleteBmi)

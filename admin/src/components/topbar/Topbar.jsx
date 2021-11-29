@@ -5,13 +5,14 @@ import { NotificationsNone, Language, Settings } from "@material-ui/icons";
 import { AuthContext } from "../../context/authContext/AuthContext";
 import { logout } from "../../context/authContext/AuthAction";
 export default function Topbar() {
-  const { dispatch } = useContext(AuthContext);
+  const { dispatch,user } = useContext(AuthContext);
+  const userName = user.user.username
   return (
     <div className="topbar">
       <div className="topbarWrapper">
         <div className="topLeft">
           <Link to="/" className="link">
-            <span className="logo2">Hoan Admin</span>
+            <span className="logo2">{userName}</span>
           </Link>
         </div>
         <div className="topRight">
@@ -27,7 +28,7 @@ export default function Topbar() {
             <Settings />
           </div>
           <img
-            src="https://scontent.fdad2-1.fna.fbcdn.net/v/t1.6435-9/70262756_1177702899103434_73706303133843456_n.jpg?_nc_cat=107&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=ljqpJVLWu54AX9WD-Az&_nc_ht=scontent.fdad2-1.fna&oh=bceace6787d79a6bb795f1c5bbf944d5&oe=61A3C6EE"
+            src="https://scontent.fdad2-1.fna.fbcdn.net/v/t1.6435-9/70262756_1177702899103434_73706303133843456_n.jpg?_nc_cat=107&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=eTacQ9DH8DwAX84ah_A&tn=3rWP3Q5B4Kfof7oi&_nc_ht=scontent.fdad2-1.fna&oh=4caed286942117b4c3969a311918f9a8&oe=61CB53EE"
             alt=""
             className="topAvatar"
           />

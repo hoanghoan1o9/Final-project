@@ -1,8 +1,6 @@
 import React from "react";
 import "./detailNutrition.css";
-
 import { Link } from "react-router-dom";
-
 const DetailsNutrition = () => {
   return (
     <div className="container_detail_nutrition">
@@ -17,7 +15,6 @@ const DetailsNutrition = () => {
               <th>Carbohydrate (g)</th>
               <th>Fat (g)</th>
             </tr>
-
             <tr>
               <td>1</td>
               <td>lean pork</td>
@@ -26,7 +23,6 @@ const DetailsNutrition = () => {
               <td>7</td>
               <td>0</td>
             </tr>
-
             <tr>
               <td>2</td>
               <td>chicken breast meat</td>
@@ -35,7 +31,6 @@ const DetailsNutrition = () => {
               <td>3.6</td>
               <td>0</td>
             </tr>
-
             <tr>
               <td>3</td>
               <td>Lean beef</td>
@@ -44,7 +39,6 @@ const DetailsNutrition = () => {
               <td>11.8</td>
               <td>0</td>
             </tr>
-
             <tr>
               <td>4</td>
               <td>duck egg</td>
@@ -53,7 +47,6 @@ const DetailsNutrition = () => {
               <td>10</td>
               <td>0</td>
             </tr>
-
             <tr>
               <td>5</td>
               <td>chicken egg</td>
@@ -62,7 +55,6 @@ const DetailsNutrition = () => {
               <td>11</td>
               <td>0</td>
             </tr>
-
             <tr>
               <td>6</td>
               <td>Salmon</td>
@@ -71,7 +63,6 @@ const DetailsNutrition = () => {
               <td>6.34</td>
               <td>0</td>
             </tr>
-
             <tr>
               <td>7</td>
               <td>Fresh milk with no sugar</td>
@@ -80,7 +71,6 @@ const DetailsNutrition = () => {
               <td>4.4</td>
               <td>4.8</td>
             </tr>
-
             <tr>
               <td>8</td>
               <td>Olive oil</td>
@@ -89,7 +79,6 @@ const DetailsNutrition = () => {
               <td>14</td>
               <td>0</td>
             </tr>
-
             <tr>
               <td>9</td>
               <td>Avocado</td>
@@ -98,7 +87,6 @@ const DetailsNutrition = () => {
               <td>0</td>
               <td>15</td>
             </tr>
-
             <tr>
               <td>10</td>
               <td>Cooked rice</td>
@@ -107,7 +95,6 @@ const DetailsNutrition = () => {
               <td>0</td>
               <td>28</td>
             </tr>
-
             <tr>
               <td>11</td>
               <td>Bread</td>

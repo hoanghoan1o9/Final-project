@@ -21,12 +21,36 @@ const ViewBmi = () => {
         <table>
           <tbody>
             <tr>
-              {/* <th>#</th> */}
+              <th>#</th>
               {/* <th>Calculate BMI</th> */}
+              <th>Height and weight results</th>
               <th>Latest results</th>
             </tr>
             <tr>
-              {/* <td>1</td> */}
+              <td>
+                {bmis.bmis &&
+                  bmis.bmis.map((bmi, i) => (
+                    <li
+                      key={bmi._id}
+                      style={{ listStyle: "none", padding: "5px" }}
+                    >
+                      {i + 1}
+                    </li>
+                  ))}
+              </td>
+              <td>
+                {bmis.bmis &&
+                  bmis.bmis.map((bmi) => (
+                    <li
+                      key={bmi._id}
+                      style={{ listStyle: "none", padding: "5px" }}
+                    >
+                      <em style={{ color: "red" }}>{bmi.height}</em> cm{" "}
+                      <span>&emsp;</span>{" "}
+                      <em style={{ color: "red" }}>{bmi.weight}</em> kg
+                    </li>
+                  ))}
+              </td>
               <td>
                 {bmis.bmis &&
                   bmis.bmis.map((bmi) => (
@@ -42,6 +66,32 @@ const ViewBmi = () => {
                       </button>
                     </li>
                   ))}
+              </td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>
+                <em>Notice : If your BMI is</em>
+              </td>
+              <td>
+                <p>
+                  lower than <em>18.5</em> you are <em>"Underweight"</em>
+                </p>
+                <p>
+                  higher or equal <em>18.5</em> && lower <em>24.9</em> you are{" "}
+                  <em>"Normal"</em>
+                </p>
+                <p>
+                  higher or equal <em>25</em> && lower or equal <em>29.9</em>
+                  <em>"Overweight"</em>
+                </p>
+                <p>
+                  higher or equal <em>30</em> && lower or equal <em>34.9</em>{" "}
+                  <em>"Obese"</em>
+                </p>
+                <p>
+                  higher than <em>35</em> you are <em>"Dangerous Obesity"</em>
+                </p>
               </td>
             </tr>
           </tbody>

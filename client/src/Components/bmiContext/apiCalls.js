@@ -1,6 +1,5 @@
 import axios from "axios";
 import {
-  // getBmisStart,
   getBmisSuccess,
   getBmisFailure,
   createbmiStart,

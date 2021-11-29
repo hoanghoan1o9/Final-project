@@ -1,16 +1,12 @@
 import React, { useState, useRef } from "react";
 import { Link } from "react-router-dom";
-
-
 const CalculateBRM = () => {
   const [height, setHeight] = useState("");
   const [weight, setWeight] = useState("");
   const [age, setAge] = useState("");
   const [gender, setGender] = useState("");
   const [bmrResult, setBmrResult] = useState(null);
-
   const heightRef = useRef();
-
   function CalculateBMR() {
     let bmr;
     if (gender === "Male") {
