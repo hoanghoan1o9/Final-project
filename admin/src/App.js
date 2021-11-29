@@ -54,7 +54,6 @@ function App() {
               <Route path="/newproduct">
                 <NewProduct />
               </Route>
-
               <Route path="/lists">
                 <ListList />
               </Route>

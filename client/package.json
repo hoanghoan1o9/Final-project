@@ -40,5 +40,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://young-dusk-63823.herokuapp.com/api/"
+  "proxy": "https://http://localhost/8800/api/"
 }

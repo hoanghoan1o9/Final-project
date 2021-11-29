@@ -1,11 +1,4 @@
-import {
-  // CalendarToday,
-  // LocationSearching,
-  MailOutline,
-  PermIdentity,
-  // PhoneAndroid,
-  Publish,
-} from "@material-ui/icons";
+import { MailOutline, PermIdentity, Publish } from "@material-ui/icons";
 import { Link, useLocation } from "react-router-dom";
 import "./user.css";
 
@@ -40,23 +33,13 @@ export default function User() {
               <PermIdentity className="userShowIcon" />
               <span className="userShowInfoTitle">{user._id}</span>
             </div>
-            {/* <div className="userShowInfo">
-              <CalendarToday className="userShowIcon" />
-              <span className="userShowInfoTitle">10.12.1999</span>
-            </div> */}
+
             <span className="userShowTitle">Contact Details</span>
-            {/* <div className="userShowInfo">
-              <PhoneAndroid className="userShowIcon" />
-              <span className="userShowInfoTitle">+1 123 456 67</span>
-            </div> */}
+
             <div className="userShowInfo">
               <MailOutline className="userShowIcon" />
               <span className="userShowInfoTitle">{user.email}</span>
             </div>
-            {/* <div className="userShowInfo">
-              <LocationSearching className="userShowIcon" />
-              <span className="userShowInfoTitle">New York | USA</span>
-            </div> */}
           </div>
         </div>
         <div className="userUpdate">
@@ -71,14 +54,7 @@ export default function User() {
                   className="userUpdateInput"
                 />
               </div>
-              {/* <div className="userUpdateItem">
-                <label>Full Name</label>
-                <input
-                  type="text"
-                  placeholder="Anna Becker"
-                  className="userUpdateInput"
-                />
-              </div> */}
+
               <div className="userUpdateItem">
                 <label>Email</label>
                 <input
@@ -87,22 +63,6 @@ export default function User() {
                   className="userUpdateInput"
                 />
               </div>
-              {/* <div className="userUpdateItem">
-                <label>Phone</label>
-                <input
-                  type="text"
-                  placeholder="+1 123 456 67"
-                  className="userUpdateInput"
-                />
-              </div>
-              <div className="userUpdateItem">
-                <label>Address</label>
-                <input
-                  type="text"
-                  placeholder="New York | USA"
-                  className="userUpdateInput"
-                />
-              </div> */}
             </div>
             <div className="userUpdateRight">
               <div className="userUpdateUpload">
