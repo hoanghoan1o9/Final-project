@@ -7,6 +7,7 @@ const userRoute = require("./routes/users");
 const movieRoute = require("./routes/movies");
 const listRoute = require("./routes/lists");
 const bmiRoute = require("./routes/bmis");
+const cors = require("cors");
 
 dotenv.config();
 
@@ -18,6 +19,8 @@ async function main() {
     .then(() => console.log("DB connection"))
     .catch((err) => console.log(err));
 }
+
+app.use(cors());
 
 app.use(express.json());
 
