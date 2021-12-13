@@ -15,7 +15,7 @@ const CalculateBMI = () => {
   const heightRef = useRef();
 
   function calculateBMI() {
-    const bmiScore = (+weight / (+height / 100) ** 2).toFixed(2);
+    const bmiScore = (+weight / (+height / 100) ** 2).toFixed();
 
     setBmi({ ...bmi, bmi: bmiScore, height: height, weight: weight });
     createBmi(bmi, dispatch);
@@ -99,7 +99,6 @@ const CalculateBMI = () => {
                 <em>{status}</em>
               </td>
             </tr>
-
           </tbody>
         </table>
       </div>

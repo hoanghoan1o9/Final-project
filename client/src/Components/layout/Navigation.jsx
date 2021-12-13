@@ -7,8 +7,6 @@ import { logout } from "../../authContext/AuthActions";
 const Navigation = () => {
   const { user } = useContext(AuthContext);
   const username = user.user.username;
-  const usernamee = user.message;
-  console.log(usernamee)
 
   const { dispatch } = useContext(AuthContext);
   const [isScrolled, setIsScrolled] = useState(false);
